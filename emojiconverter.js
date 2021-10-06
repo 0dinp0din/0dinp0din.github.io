@@ -31,6 +31,6 @@ function Converter() {
         }
     }
 
-    output.innerHTML = `<input type="text" id="outputtext" value="${finishedArray.join(" ").trim()}" readonly>`
+    output.innerHTML = `<input type="textarea" id="outputtext" class="textfields" value="${finishedArray.join(" ").trim()}" readonly>`
 
 }

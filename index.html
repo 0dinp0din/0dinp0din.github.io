@@ -11,12 +11,12 @@
 <body>
     <h1 class="text">Welcome to the emoji-text converter. To convert your text, just start writing in the textbox below, and your text will automatically be converted to big emoji-characters.</h1>
     <div id="inputcontainer" class="container">
-        <input type="text" onkeyup="Converter()" placeholder="Write text to convert." id="inputfield">
+        <input type="text" id="inputfield" onkeyup="Converter()" placeholder="Write text to convert." class="textfields">
         <img src="arrow.png">
     </div>
 
     <div id="outputcontainer" class="container">
-        <input type="text" value="Your result will appear here" readonly>
+        <input type="textarea" class="textfields" value="Your result will appear here" readonly>
     </div>
     <h2 id="error" class="text"></h2>
 
