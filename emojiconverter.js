@@ -1,16 +1,20 @@
+//HTML id variables //
 const output = document.getElementById("outputcontainer")
 const inputbutton = document.getElementById("inputbutton")
 const error = document.getElementById("error")
+
+// Dictionaries //
 const numlist = [':zero:', ':one:', ':two:', ':three:', ':four:', ':five:', ':six:', ':seven:', ':eight:', ':nine:'];
 const specialcharlist = {
     '!' : ':exclamation:', 
     '?' : ':question:'
 };
+
+// Character filters //
 const regexLetters = /^[a-zA-Z]*$/;
 const regexNumbers = /^[0-9]*$/;
 
-console.log(specialcharlist["!"], specialcharlist["?"])
-
+// Functions //
 
 function Converter() {
     const input = document.getElementById("inputfield").value.toLowerCase();
@@ -18,14 +22,14 @@ function Converter() {
     error.innerHTML=""
 
     for (i = 0; i < input.length; i++) {
-        if (regexLetters.test(input[i])){
-            finishedArray.push(`:regional_indicator_${input[i]}:`)
-        }else if (regexNumbers.test(input[i])) {
-            finishedArray.push(numlist[input[i]])
+        if (input[i] === " ") {
+            finishedArray.push(`    `)
         }else if (specialcharlist.hasOwnProperty(input[i])) {
             finishedArray.push(specialcharlist[input[i]])
-        }else if (input[i] === " ") {
-            finishedArray.push(`    `)
+        }else if (regexNumbers.test(input[i])) {
+            finishedArray.push(numlist[input[i]])
+        }else if (regexLetters.test(input[i])){
+            finishedArray.push(`:regional_indicator_${input[i]}:`)
         }else {
             error.innerHTML = `Your text contains non-english letters or numbers. Redundant characters will be ignored.`
         }
